@@ -76,7 +76,9 @@ func Embed(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	isDirect, _ := strconv.ParseBool(urlQuery.Get("direct"))
+	isDirect := true
+
+	isDirect, _ = strconv.ParseBool(urlQuery.Get("direct"))
 	isGallery, _ := strconv.ParseBool(urlQuery.Get("gallery"))
 
 	// Get direct/gallery from header too, nginx query params is pain in the ass
